@@ -1,0 +1,194 @@
+/* MEDIA QUERIES:MIN ==================== */
+@media (min-width: 391px) {
+    .hidden-device-2xs {
+        display: none !important;
+    }
+}
+
+@media (min-width: 576px) {
+    .hidden-device-xs {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .hidden-device-sm {
+        display: none !important;
+    }
+
+    /* HEADER ==================== */
+    .menu-header .menu-cta .button {
+        font-size: var(--font-size-h4);
+        line-height: var(--line-height-h4);
+    }
+
+    .menu-body .menu .button {
+        font-size: var(--font-size-h5);
+        line-height: var(--line-height-h5);
+    }
+}
+
+@media (min-width: 992px) {
+    .hidden-device-md {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1280px) {
+    .hidden-device-lg {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1440px) {
+    .hidden-device-xl {
+        display: none !important;
+    }
+}
+
+/* MEDIA QUERIES:MAX ==================== */
+@media (max-width: 1439px) {
+    .show-xl {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1279px) {
+    .show-lg {
+        display: none !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .show-md {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .show-sm {
+        display: none !important;
+    }
+
+    :root {
+        --font-size-h1: 2rem;
+        --font-size-h1-serif: 5rem;
+        --font-size-h2: 1.7rem;
+        --font-size-h2-serif: 4.7rem;
+        --font-size-h3: 1.4rem;
+        --font-size-h4: 1.2rem;
+        --font-size-h5: 1.1rem;
+        --font-size-body-big: 1.6rem;
+        --font-size-body: 1.3rem;
+        --font-size-tagline: 1.1rem;
+        --font-size-button: 1.2rem;
+        --font-size-sub: 0.9rem;
+
+        --spacing-container: var(--spacing-sm);
+    }
+
+    /* HEADER ==================== */
+    .header-intro {
+        right: 0;
+        text-align: right;
+        justify-content: space-between;
+    }
+
+    /* FOOTER ==================== */
+
+    /* COMPONENT */
+    /* DEFAULT ====================*/
+
+    /* SECTION ====================*/
+
+    /* ELEMENT ====================*/
+
+    /* PAGE */
+    /* PAGE: INDEX */
+    /* <--- Index Intro ---> */
+    [data-section="index-intro"] .sc-billboard {
+        padding: 0 var(--spacing-container);
+    }
+
+    [data-section="index-intro"] .pseudo-header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        grid-gap: var(--spacing-xs);
+        padding: var(--spacing-sm) 0;
+        height: var(--header-height);
+    }
+
+    [data-section="index-intro"] .content {
+        position: relative;
+        aspect-ratio: 0.6433823529;
+        height: auto;
+    }
+
+    [data-section="index-intro"] .video-container {
+        width: 100%;
+        position: relative;
+        z-index: 10;
+        height: fit-content;
+        top: 16.1467889908%;
+        filter: unset;
+    }
+
+    [data-section="index-intro"] .video-wrapper {
+        aspect-ratio: 1.5418502203;
+        width: 100%;
+        height: auto;
+    }
+
+    [data-section="index-intro"] .decoration-container {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        z-index: 20;
+    }
+
+    [data-section="index-intro"] .decoration-wrapper {
+        aspect-ratio: unset;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    [data-section="index-intro"] .decoration-left {
+        position: static;
+        transform: unset;
+        flex-shrink: 0;
+    }
+
+    [data-section="index-intro"] .illus-7 {
+        width: 7.1794871795vw;
+    }
+
+    [data-section="index-intro"] .decoration-tree {
+        flex-grow: 1;
+        position: static;
+    }
+
+    [data-section="index-intro"] .illus-6 {
+        width: 43.7142857143%;
+        top: 0;
+        left: 0;
+        right: unset;
+    }
+
+    [data-section="index-intro"] .decoration-instrument {
+        width: 42.2857142857%;
+    }
+}
+
+@media (max-width: 575px) {
+    .show-xs {
+        display: none !important;
+    }
+}
+
+@media (max-width: 390px) {
+    .show-2xs {
+        display: none !important;
+    }
+}
