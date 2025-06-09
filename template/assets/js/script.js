@@ -451,8 +451,6 @@ jQuery(document).ready(function ($) {
     $("[data-card='mentor']").click(function (e) {
         e.preventDefault();
         $modal.addClass("active");
-        // activeSlideIndex = $(this).data("card-index");
-        // slides.slideToLoop(activeSlideIndex, 0);
     });
 
     // Close Modal
