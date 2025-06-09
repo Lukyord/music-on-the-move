@@ -2,8 +2,7 @@
     font-family: "iconfont";
     src: url("../font/iconfont/iconfont.eot");
     src: url("../font/iconfont/iconfont.eot#iefix") format("embedded-opentype"),
-        url("../font/iconfont/iconfont.ttf") format("truetype"),
-        url("../font/iconfont/iconfont.woff") format("woff"),
+        url("../font/iconfont/iconfont.ttf") format("truetype"), url("../font/iconfont/iconfont.woff") format("woff"),
         url("../font/iconfont/iconfont.svg#iconfont") format("svg");
     font-weight: normal;
     font-style: normal;
@@ -25,6 +24,15 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.ic-meal:before {
+    content: "\e978";
+}
+.ic-accommodation:before {
+    content: "\e979";
+}
+.ic-shared-room:before {
+    content: "\e97b";
+}
 .ic-angle-wide-right:before {
     content: "\e977";
 }

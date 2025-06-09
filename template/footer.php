@@ -1,7 +1,58 @@
 <footer id="footer">
+    <div class="footer-decoration">
+        <div class="illus-4"></div>
+        <div class="illus-8"></div>
+        <div class="illus-5"></div>
+        <div class="illus-2"></div>
+        <div class="illus-9"></div>
+
+        <?php
+        $section_cover = "./assets/media/design/footer-decoration.png";
+        $section_cover_m = "./assets/media/design/footer-decoration-mb.png";
+        include("include/function-group.php");
+        ?>
+    </div>
+
     <div class="footer-nav">
+        <div class="footer-brand">
+            <a class="brand" href="<?php echo $root; ?>index.php">
+                <img class="logo" src="<?php echo $root; ?>assets/media/design/logo.svg" alt="">
+            </a>
+        </div>
 
+        <div class="footer-links">
+            <ul class="links">
+                <li>
+                    <a class="clickable" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdVLiMcGUV-IRLqFLf281iqP7qLRq4CTcfhQILhWbWFMc81Iw/viewform">
+                        APPLY NOW
+                    </a>
+                </li>
+                <li>
+                    <a class="clickable" href="<?php echo $root; ?>accommodation.php">
+                        Venues & Accommodation
+                    </a>
+                </li>
+                <li>
+                    <a class="clickable" href="<?php echo $root; ?>team.php">
+                        Our Team
+                    </a>
+                </li>
+                <li>
+                    <a class="clickable" href="<?php echo $root; ?>policy.php">
+                        Policy
+                    </a>
+                </li>
+            </ul>
+        </div>
 
+        <div class="footer-social">
+            <ul class="social">
+                <li><a href="https://www.facebook.com/MusicontheMovebyPGVIM" target="_blank" class="clickable"><i class="ic ic-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/music.onthemove/" target="_blank" class="clickable"><i class="ic ic-instagram"></i></a></li>
+                <li><a href="https://lin.ee/gT5W0Vd1" target="_blank" class="clickable"><i class="ic ic-line"></i></a></li>
+                <li><a href="https://www.youtube.com/@PGVIMChannel" target="_blank" class="clickable"><i class="ic ic-youtube"></i></a></li>
+            </ul>
+        </div>
     </div>
 </footer>
 

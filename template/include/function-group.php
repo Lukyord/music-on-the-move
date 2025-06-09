@@ -12,7 +12,7 @@ if (isset($section_cover) && !empty($section_cover)) {
 
     if ($isImageCover && $isImageCoverM) { ?>
         <picture class="object-fit">
-            <source media="(min-width:992px)" srcset="<?php echo $section_cover; ?>">
+            <source media="(min-width:769px)" srcset="<?php echo $section_cover; ?>">
             <source media="(min-width:0px)" srcset="<?php echo $section_cover_m; ?>">
             <img src="<?php echo $section_cover; ?>" alt="">
         </picture>

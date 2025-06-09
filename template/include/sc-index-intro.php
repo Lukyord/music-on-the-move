@@ -73,9 +73,5 @@
                 </div>
             </div>
         </div>
-
-        <?php
-        // include($root . "include/el-header-intro.php"); 
-        ?>
     </div>
 </section>

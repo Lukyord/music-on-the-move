@@ -18,6 +18,13 @@ jQuery(document).ready(function ($) {
             }
         );
     });
+
+    onWindowResize(function () {
+        const headerIntroHeight = $(".header-intro").outerHeight();
+        $("[data-section='index-intro']").css({
+            "--header-intro-height": `${headerIntroHeight}px`,
+        });
+    });
 });
 
 /*::* CURSOR *::*/
@@ -44,6 +51,15 @@ jQuery(document).ready(function () {
                 isFirstMove = false;
             }
         });
+
+        cursor.html(`
+            <div class="circle"></div>
+            <div class="illus-1 default"></div>
+            <div class="illus-2 hover"></div>
+            <div class="illus-3 hover"></div>
+            <div class="illus-4 hover"></div>
+            <div class="illus-5 hover"></div>
+        `);
 
         function updateCursorPosition() {
             currentX = lerp(currentX, targetX, lerpFactor);
@@ -92,4 +108,361 @@ jQuery(document).ready(function () {
     }
 
     onWindowResize(handleCursorFeature);
+});
+
+/*::* TEXT GRADIENT SCROLL *::*/
+jQuery(document).ready(function ($) {
+    $(".text-gradient").each(function () {
+        const textGradientScroll = $(this);
+        const paragraphScroll = textGradientScroll.find(".opacity-paragraph");
+        const char = paragraphScroll.find(".char");
+
+        const scrollConfig = {
+            trigger: paragraphScroll[0],
+            start: "top 90%",
+            end: "bottom 40%",
+            scrub: true,
+            toggleActions: "play play reverse reverse",
+        };
+
+        gsap.fromTo(
+            char,
+            {
+                opacity: 0.2,
+            },
+            {
+                opacity: 1,
+                duration: 1.5,
+                stagger: 0.5,
+                scrollTrigger: scrollConfig,
+            }
+        );
+    });
+});
+
+/*::* FIT TEXT *::*/
+jQuery(document).ready(function ($) {
+    $("[data-section='performance-venue']").each(function () {
+        const performanceVenue = $(this);
+        const dateNoteSubttl = performanceVenue.find(".date-note .note > h5");
+        const dateNoteDate = performanceVenue.find(".date-note .note > h3");
+
+        dateNoteSubttl.fitText(1.2, {
+            minFontSize: "8px",
+            maxFontSize: "16px",
+        });
+
+        dateNoteDate.fitText(1.2, {
+            minFontSize: "12px",
+            maxFontSize: "16px",
+        });
+    });
+});
+
+/*::* MAP SLIDER *::*/
+jQuery(document).ready(function ($) {
+    if ($("[data-section='map']").length === 0) return;
+
+    const mapSliderContainer = $("[data-section='map'] .card-container");
+    const mapSliderBlockContent = mapSliderContainer.find("[class*='block-content-']");
+    let maxContentHeight = 0;
+
+    onWindowResize(function () {
+        mapSliderBlockContent.each(function () {
+            const contentHeight = $(this).outerHeight();
+            if (contentHeight > maxContentHeight) {
+                maxContentHeight = contentHeight;
+            }
+        });
+
+        mapSliderContainer.css({
+            "--max-content-height": `${maxContentHeight}px`,
+        });
+    });
+});
+
+/*::* THUMBS SWIPER *::*/
+jQuery(document).ready(function ($) {
+    $(".thumbs-slide").each(function () {
+        const $this = $(this);
+        const topSwiper = $this.find(".swiper.top")[0];
+        const thumbsSwiper = $this.find(".swiper.thumbs")[0];
+
+        const slideAutoplay = $this.hasClass("autoplay");
+        const slidePause = $this.hasClass("pause");
+        const autoplayInterval = $this.data("autoplay-interval");
+
+        const slideButtonNext =
+            $this.find(".swiper-button-next")[0] ||
+            $this.parent().find(".swiper-button-next")[0] ||
+            $(".swiper-button-next")[0];
+        const slideButtonPrev =
+            $this.find(".swiper-button-prev")[0] ||
+            $this.parent().find(".swiper-button-prev")[0] ||
+            $(".swiper-button-prev")[0];
+
+        var galleryThumbs = new Swiper(thumbsSwiper, {
+            centeredSlides: true,
+            slidesPerView: "auto",
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+            slideToClickedSlide: true,
+            on: {
+                init: function () {
+                    const activeVideos = $this.find(".swiper.thumbs .swiper-slide-active video[autoplay]");
+                    activeVideos.each(function () {
+                        this.pause();
+                    });
+                },
+            },
+        });
+
+        var galleryTop = new Swiper(topSwiper, {
+            slidesPerView: 1,
+            effect: "slide",
+            speed: 1000,
+            fadeEffect: {
+                crossFade: true,
+            },
+            centeredSlides: true,
+            slideToClickedSlide: true,
+            centerInsufficientSlides: true,
+            navigation: {
+                nextEl: slideButtonNext,
+                prevEl: slideButtonPrev,
+            },
+            autoplay: {
+                delay: autoplayInterval || 4000,
+                disableOnInteraction: false,
+            },
+            thumbs: {
+                swiper: galleryThumbs,
+            },
+            on: {
+                slideChangeTransitionStart: function () {
+                    const activeVideos = $this.find(".swiper.top .swiper-slide-active video[autoplay]");
+                    activeVideos.each(function () {
+                        try {
+                            this.currentTime = 0;
+                            const playPromise = this.play();
+                            if (playPromise !== undefined) {
+                                playPromise.catch((error) => {
+                                    if (error.name !== "AbortError") {
+                                        console.error("Video playback error:", error);
+                                    }
+                                });
+                            }
+                        } catch (error) {
+                            console.error("Error handling video:", error);
+                        }
+                    });
+
+                    //update thumbs swiper slide active to the same index
+                    galleryThumbs.slideTo(galleryTop.realIndex);
+                },
+                slideChangeTransitionEnd: function () {
+                    const inactiveVideos = $this.find(".swiper.top .swiper-slide:not(.swiper-slide-active) video");
+                    inactiveVideos.each(function () {
+                        try {
+                            this.pause();
+                            this.currentTime = 0;
+                        } catch (error) {
+                            console.error("Error pausing video:", error);
+                        }
+                    });
+                },
+            },
+        });
+
+        function vdoData($this, callback) {
+            const videoSlides = $this.find("video[autoplay]");
+            let loadedCount = 0;
+
+            if (videoSlides.length === 0) {
+                callback();
+                return;
+            }
+
+            videoSlides.each(function () {
+                const vdo = $(this)[0];
+
+                vdo.preload = "metadata";
+
+                vdo.load();
+
+                vdo.onloadedmetadata = function () {
+                    const vdoTime = (vdo.duration - 1) * 1000;
+                    $(vdo).closest(".swiper-slide").attr("data-swiper-autoplay", vdoTime);
+
+                    loadedCount++;
+
+                    if (loadedCount === videoSlides.length) {
+                        callback();
+                    }
+                };
+            });
+        }
+
+        galleryTop.autoplay.stop();
+
+        vdoData($this.find(".swiper.top"), function () {
+            if (slideAutoplay) galleryTop.autoplay.start();
+
+            if (slidePause) {
+                $this
+                    .on("mouseenter", () => galleryTop.autoplay.stop())
+                    .on("mouseleave", () => galleryTop.autoplay.start());
+            }
+        });
+    });
+});
+
+/*::* YEAR SELECTOR *::*/
+jQuery(document).ready(function ($) {
+    $(".year-selector").each(function () {
+        const $selector = $(this);
+        const $yearCurrent = $(".year-selector-current");
+        const $yearList = $(".year-selector-list");
+        const $yearItems = $(".year-selector-item");
+
+        $selector.on("click", function (e) {
+            e.preventDefault();
+            $selector.toggleClass("active");
+            $yearList.slideToggle();
+        });
+
+        // Handle click on year items
+        $yearItems.on("click", function (e) {
+            e.preventDefault();
+            const year = $(this).data("year");
+
+            // Update current selection
+            $yearCurrent.text("MENTORS " + year);
+
+            // Update active tab content
+            $(".tab-content").removeClass("active");
+            $(`.tab-content[data-tab-content="${year}"]`).addClass("active");
+            $(`.tab-content[data-modal-content="${year}"]`).addClass("active");
+
+            $yearItems.removeClass("active");
+            $(".year-selector-item[data-year='" + year + "']").addClass("active");
+        });
+
+        $(document).on("click", function (e) {
+            if (!$(e.target).closest(".year-selector").length) {
+                $selector.removeClass("active");
+                $yearList.slideUp();
+            }
+        });
+    });
+});
+
+/*::* MENTOR MODAL *::*/
+jQuery(document).ready(function ($) {
+    const $modal = $(".mentor-modal");
+    const $modalContent = $modal.find(".tab-content");
+    const $modalOverlay = $modal.find(".modal-overlay");
+    const $modalCloseBtn = $modal.find(".modal-close-button");
+
+    function getScreenCategory() {
+        return window.innerWidth <= 768 ? "small" : "large";
+    }
+
+    // Modal Swiper
+    $modalContent.each(function () {
+        const $this = $(this);
+        const $swiper = $this.find(".swiper.main");
+        const swiperNav = $this.find(".swiper-nav");
+        const swiperNavPrev = swiperNav.find(".swiper-button-prev")[0];
+        const swiperNavNext = swiperNav.find(".swiper-button-next")[0];
+
+        let slides;
+        let activeSlideIndex = 0;
+        let currentScreen = null;
+
+        function initializeSwiper() {
+            const newScreen = getScreenCategory();
+
+            if (newScreen === currentScreen && slides) {
+                return;
+            }
+
+            currentScreen = newScreen;
+
+            if (slides) {
+                activeSlideIndex = slides.realIndex;
+                slides.destroy(true, true);
+                console.log("destroy");
+            }
+
+            let prevSlideConfig = isSmallScreen
+                ? {
+                      translate: ["-100%", "0%", 0],
+                      rotate: [0, 0, 0],
+                      origin: "center",
+                  }
+                : {
+                      translate: ["-105%", "10%", -100],
+                      rotate: [0, 0, -4],
+                      origin: "bottom",
+                  };
+
+            let nextSlideConfig = isSmallScreen
+                ? {
+                      translate: ["100%", "0%", 0],
+                      rotate: [0, 0, 0],
+                      origin: "center",
+                  }
+                : {
+                      translate: ["105%", "10%", -100],
+                      rotate: [0, 0, 4],
+                      origin: "bottom",
+                  };
+
+            console.log("create");
+
+            slides = new Swiper($swiper[0], {
+                speed: 1500,
+                loop: true,
+                centeredSlides: true,
+                slidesPerView: "auto",
+                watchSlidesVisibility: true,
+                watchSlidesProgress: true,
+                navigation: {
+                    nextEl: swiperNavNext,
+                    prevEl: swiperNavPrev,
+                },
+                effect: "creative",
+                creativeEffect: {
+                    shadowPerProgress: true,
+                    limitProgress: 8,
+                    prev: prevSlideConfig,
+                    next: nextSlideConfig,
+                },
+            });
+
+            slides.slideToLoop(activeSlideIndex, 0);
+        }
+
+        onWindowResize(initializeSwiper, (delay = 500));
+    });
+
+    // Open Modal
+    $("[data-card='mentor']").click(function (e) {
+        e.preventDefault();
+        $modal.addClass("active");
+        // activeSlideIndex = $(this).data("card-index");
+        // slides.slideToLoop(activeSlideIndex, 0);
+    });
+
+    // Close Modal
+    $modalOverlay.on("click", function (e) {
+        e.preventDefault();
+        $modal.removeClass("active");
+    });
+
+    $modalCloseBtn.on("click", function (e) {
+        e.preventDefault();
+        $modal.removeClass("active");
+    });
 });
