@@ -100,9 +100,9 @@ $page_index = ($page == basename(dirname($_SERVER['PHP_SELF']), "/") || $page ==
                                         </div>
 
                                         <div class="menu-ttl">
-                                            <p class="size-h1">
+                                            <h2 class="size-h3 uppercase">
                                                 Music On The Move 2025
-                                            </p>
+                                            </h2>
                                         </div>
 
                                         <div class="menu-subttl">

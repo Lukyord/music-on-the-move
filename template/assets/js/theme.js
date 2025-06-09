@@ -17,36 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     detectDevices();
 });
 
-/*::* SCROLL TO TOP ON LOAD *::*/
-jQuery(document).ready(function ($) {
-    // Disable browser's automatic scroll restoration
-    if ("scrollRestoration" in history) {
-        history.scrollRestoration = "manual";
-    }
-
-    // Force scroll to top
-    $("html, body").scrollTop(0);
-
-    // Backup scroll after a short delay
-    setTimeout(function () {
-        $("html, body").scrollTop(0);
-    }, 100);
-});
-
-/*::* DETECT RESIZING *::*/
-jQuery(document).ready(function ($) {
-    onWindowResize(
-        () => {
-            $("html").removeClass("resizing");
-        },
-        300,
-        true,
-        () => {
-            $("html").addClass("resizing");
-        }
-    );
-});
-
 /*::* HANDLE SCROLL *::*/
 (function (window, document) {
     "use strict";

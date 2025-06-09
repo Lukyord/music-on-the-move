@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="landing-navigation">
-                    <div class="block-content-center animate fadeEntryUp" data-wow-delay="1s">
+                    <div class="block-content-center animate fadeEntryUp">
                         <div class="block-desc">
                             <p>Engage yourself for 5 days and 4 nights in the middle of nature and the creative surroundings.</p>
                         </div>
@@ -60,7 +60,7 @@
                         </div>
                     </div>
 
-                    <div class="block-content-center animate fadeEntryUp" data-wow-delay="1.2s">
+                    <div class="block-content-center animate fadeEntryUp">
                         <div class="team-list">
                             <?php
                             for ($i = 1; $i <= 3; $i++) {
@@ -250,9 +250,11 @@
                                 include("include/function-group.php");
                                 ?>
 
+                                <?php /*
                                 <div class="cover-desc">
                                     <p><?php echo $item["text"]; ?></p>
                                 </div>
+                                */ ?>
                             </div>
 
                             <div class="card-image">

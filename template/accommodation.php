@@ -12,8 +12,8 @@
                     </div>
 
                     <div class="block-subttl">
-                        <p>SPEND 5 DAYS AND NIGHTS WITH INSPIRATION
-                            <br> FROM NATURE AND CREATIVE SURROUNDINGS
+                        <p>Engage yourself for 5 days and 4 nights
+                            <br> in the middle of nature and the creative surroundings.
                         </p>
                     </div>
 
@@ -94,10 +94,14 @@
                         </ul>
 
                         <div class="block-desc">
-                            <h5>GET THE CELEBRITY TREATMENT WITH
-                                <br class="show-sm"> WORLD-CLASS SERVICE AT HOTEL LABARIS KHAO YAI
+                            <h5>
+                                The realm of King Minotaur
+                                <br class="show-sm"> and his mythical fellow creature.
                             </h5>
-                            <p>Hotel Labaris Khao Yai in Pakchong offers a 5-star experience with free WiFi, a year-round outdoor swimming pool, and a lush garden. Guests can relax on the terrace or enjoy meals at the modern restaurant. The hotel features family rooms, a hot tub, and a children's playground. Additional facilities include a fitness centre, outdoor play area, and a coffee shop. Free bicycles are available for exploring the surroundings.</p>
+                            <p>
+                                This adventurous and wonder kingdom covers an area of 24,000 sq.m. and is located on Thanarat Rd., Pakchong, Nakhon Ratchasima.
+                                <br class="show-sm">This is the dreamland filled with imaginary stories of curiosity, surprises and romance.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -111,14 +115,16 @@
                 <div class="content">
                     <div class="block-content-center animate fadeEntryUp">
                         <div class="block-ttl">
-                            <h2>SPEND 5 DAYS AND NIGHTS WITH
-                                <br class="show-md"> INSPIRATION FROM NATURE
+                            <h2>
+                                Spend 5 days and 4 nights
+                                <br class="show-sm"> in the middle of nature and the creative surroundings.
                             </h2>
                         </div>
 
                         <div class="block-desc">
                             <p>
-                                Hotel Labaris Khao Yai in Pakchong offers a 5-star experience with free WiFi, a year-round outdoor swimming pool, and a lush garden. Guests can relax on the terrace or enjoy meals at the modern restaurant. The hotel features family rooms, a hot tub, and a children's playground. Additional facilities include a fitness centre, outdoor play area, and a coffee shop. Free bicycles are available for exploring the surroundings.
+                                Fearless visitors will discover adventurous lore divided into 5 chapters.
+                                <br class="show-sm"> Lapin Hill and Whispering Meadows | Starry Castle and Midnight Castle | The Infinite Forest and Infinite Villa | The Fable Feast (Labaris Restaurant) and Town Hall | Normadic Creek and Cub’s Creek (Swimming Pool) Endless River (Natural Cannel)
                             </p>
                         </div>
                     </div>
@@ -172,7 +178,14 @@
                                     "facebook" => "https://www.facebook.com/nhaphakhaoyai",
                                     "global-o" => "https://nhapha-khaoyai.com/",
                                 ],
-                                "venue-desc" => "Acoustics. Architecture. Aesthetics. Atmosphere. <br><br> A special clarinet recital by Andrew Simon — set not just in a venue, but in dialogue with the architecture of Nhapha Khao Yai Resort, creating harmony between form and sound for an unforgettable guest experience."
+                                "venue-desc" => "Acoustics. Architecture. Aesthetics. Atmosphere. <br><br> A special clarinet recital by Andrew Simon — set not just in a venue, but in dialogue with the architecture of Nhapha Khao Yai Resort, creating harmony between form and sound for an unforgettable guest experience.",
+                                "images" => [
+                                    "./assets/media/design/napha-khaoyai-resort-1.jpg",
+                                    "./assets/media/design/napha-khaoyai-resort-2.jpg",
+                                    "./assets/media/design/napha-khaoyai-resort-3.jpg",
+                                    "./assets/media/design/napha-khaoyai-resort-4.jpg",
+                                ]
+
                             ],
                             [
                                 "date" => "Saturday, 19 July 2025",
@@ -183,7 +196,13 @@
                                     "facebook" => "https://www.facebook.com/profile.php?id=61569868164323",
                                     "global-o" => "https://www.khaoyaiart.com/",
                                 ],
-                                "venue-desc" => "An intimate music walk through <strong>Khao Yai Art Forest</strong> — where nature, art pieces, and live music engage in conversation. Each performance becomes an echo, gently resonating through trees, trails, and sculptures."
+                                "venue-desc" => "An intimate music walk through <strong>Khao Yai Art Forest</strong> — where nature, art pieces, and live music engage in conversation. Each performance becomes an echo, gently resonating through trees, trails, and sculptures.",
+                                "images" => [
+                                    "./assets/media/design/khaoyai-art-forest-1.jpg",
+                                    "./assets/media/design/khaoyai-art-forest-2.jpg",
+                                    "./assets/media/design/khaoyai-art-forest-3.jpg",
+                                    "./assets/media/design/khaoyai-art-forest-4.jpg",
+                                ]
                             ],
                             [
                                 "date" => "Sunday, 20 July 2025",
@@ -194,7 +213,13 @@
                                     "facebook" => "https://www.facebook.com/khaoyai.harudot",
                                     "global-o" => "https://nanacoffeeroasters.com/",
                                 ],
-                                "venue-desc" => "Sound. Sip. Slow. <br><br> A relaxed yet elevated afternoon experience that blends the warmth of live music with the culture of coffee. Enjoy curated chamber performances while savoring signature beverages, surrounded by the calm, green beauty of Harudot Khao Yai by NANA Coffee Roasters' outdoor setting."
+                                "venue-desc" => "Sound. Sip. Slow. <br><br> A relaxed yet elevated afternoon experience that blends the warmth of live music with the culture of coffee. Enjoy curated chamber performances while savoring signature beverages, surrounded by the calm, green beauty of Harudot Khao Yai by NANA Coffee Roasters' outdoor setting.",
+                                "images" => [
+                                    "./assets/media/design/harudot-khaoyai-1.jpg",
+                                    "./assets/media/design/harudot-khaoyai-2.jpg",
+                                    "./assets/media/design/harudot-khaoyai-3.jpg",
+                                    "./assets/media/design/harudot-khaoyai-4.jpg",
+                                ]
                             ]
                         ];
 
@@ -227,13 +252,13 @@
                                     <div class="swiper auto insufficient">
                                         <div class="swiper-wrapper">
                                             <?php
-                                            for ($i = 1; $i <= 4; $i++) {
+                                            foreach ($performance_venue["images"] as $index => $image) {
                                             ?>
                                                 <div class="swiper-slide">
-                                                    <div class="media animate fadeIn" data-wow-delay="<?php echo ($i - 1) * 0.2; ?>s">
+                                                    <div class="media animate fadeIn" data-wow-delay="<?php echo $index * 0.2; ?>s">
                                                         <?php
-                                                        $section_cover = "./assets/media/design/accommodation-" . ($i - 1 + 4) . ".jpg";
-                                                        $section_cover_m = "./assets/media/design/accommodation-" . ($i - 1 + 4) . ".jpg";
+                                                        $section_cover = $image;
+                                                        $section_cover_m = $image;
                                                         include("include/function-group.php");
                                                         ?>
                                                     </div>
@@ -320,7 +345,7 @@
                                         "map-image" => "./assets/media/design/map-hotel-labaris-khaoyai.jpg",
                                         "map-subttl" => "The Hotel",
                                         "map-ttl" => "hotel labaris khaoyai",
-                                        "map-link" => "https://www.hotellabaris.com/"
+                                        "map-link" => "https://maps.app.goo.gl/MtwRitMsTpNxEWRFA"
                                     ],
                                     [
                                         "type" => "venue",
@@ -426,7 +451,7 @@
                             "content" => "
                             <p>Specially designed for families embarking on a musical journey together.</p>
                             <ul class='wp-block-list'>
-                                <li>Shared Room: Siblings Only</li>
+                                <li>Shared Room: 2 Siblings Only</li>
                             </ul>
                             ",
                             "note" => [
@@ -450,7 +475,7 @@
                             "content" => "
                             <p>Perfect for families full of musical spirit.</p>
                             <ul class='wp-block-list'>
-                                <li>Shared Room: 3 Siblings</li>
+                                <li>Shared Room: 3 Siblings Only</li>
                             </ul>
                             ",
                             "note" => [
@@ -499,8 +524,7 @@
                             "note" => [
                                 [
                                     "icon" => "meal",
-                                    "not-included" => "true",
-                                    "desc" => "Meals for the parent (lunch and dinner) are not included"
+                                    "desc" => "Lunch and dinner are included "
                                 ]
                             ]
                         ],

@@ -342,132 +342,48 @@
                 ],
             ],
             "organizer" => [
-                "year" => "2025",
+                [
+                    "name" => "Tawanrat Mewongukote",
+                    "position" => 'Project Director',
+                    "image" => "./assets/media/design/tawanrat-mewongukote.jpg",
+                ],
+                [
+                    "name" => "Thitima Suksaengchan",
+                    "position" => "Project Coordinator",
+                    "image" => "./assets/media/design/thitima-suksaengchan.jpg",
+                ],
+                [
+                    "name" => "Jittinant Klinnumhom ",
+                    "position" => "Project Assistant",
+                    "image" => "./assets/media/design/jittinant-klinnumhom.jpg",
+                ],
+                [
+                    "name" => "Nusamol Jongprakitpong",
+                    "position" => "Project Assistant",
+                    "image" => "./assets/media/design/nusamol-jongprakitpong.jpg",
+                ],
+                [
+                    "name" => "Anyarin Tantiachirarot",
+                    "position" => "Supplies and Procurement Officer",
+                    "image" => "./assets/media/design/anyarin-tantiachirarot.jpg",
+                ],
+                [
+                    "name" => "Tuchawong Sirisawat",
+                    "position" => "Technical Director",
+                    "image" => "./assets/media/design/tuchawong-sirisawat.jpg",
+                ],
+                [
+                    "name" => "Pannatad Pensawang",
+                    "position" => "Production Assistant",
+                    "image" => "./assets/media/design/pannatad-pensawang.jpg",
+                ],
+                [
+                    "name" => "Nawamongkol Nawachaisupasri",
+                    "position" => "Production Assistant",
+                    "image" => "./assets/media/design/nawamongkol-nawachaisupasri.jpg",
+                ],
             ]
         ],
-        "2024" => [
-            "mentor" => [
-                //Naomi Bach
-                [
-                    "name" => "Naomi Bach",
-                    "image" => "./assets/media/design/naomi-bach.jpg",
-                    "position" => [
-                        "first violinist with the Residentie Orkest",
-                        "founder and artistic director of the Young String Players Foundation (Stichting Jonge Strijkers Nederland)",
-                        "violin teacher",
-                        "jury member at various national competitions for young musicians",
-                        "teacher and coach at summer courses and string festivals",
-                        "workshop leader and ensemble coach"
-                    ],
-                    "bio" => "
-                    <p>Versatile and passionate violinist with extensive experience performing with leading orchestras such as the Royal Concertgebouw Orchestra and the London Symphony Orchestra. Naomi has held a permanent position as first violinist with the Residentie Orkest The Hague since 2009.</p>
-                    <p>She studied violin with Janice Graham at the Royal College of Music in London and previously with Peter Brunt and Kees Koelmans at the Conservatorium van Amsterdam. At the age of eight, she was admitted to the Young Talent program at the Utrecht Conservatory, where she studied with Joyce Tan.</p>
-                    <p>Naomi is dedicated to nurturing the next generation of musicians, both individually and in ensemble settings. As founder and artistic director of the Young String Players Foundation (Stichting Jonge Strijkers Nederland), she coaches young musicians in chamber music and orchestral playing. Her teaching approach is tailored to each student's level, with a strong focus on technique, expression, and enjoyment. She is regularly invited to serve on competition juries and teaches at music festivals and summer courses.</p>
-                    <h3>Education</h3>
-        
-                    <p>
-                        <i>Royal College of Music, London</i>
-                        <br>Utrecht Conservatory
-                        <br>Master of Music - 2005-2007
-                        <br>Teachers: Janice Graham, Eeva Koskinen
-                    </p>
-                    <p>
-                        <i>Conservatorium of Amsterdam</i>
-                        <br>Bachelor of Music - 2000-2005
-                        <br>Teachers: Peter Brunt & Kees Koelmans
-                    </p>
-                    <p>
-                        <i>Utrecht and Amsterdam Conservatory</i>
-                        <br>Young Talent Department - 1989-1999
-                        <br>Teacher: Joyce Tan
-                    </p>
-                    <p>
-                        <i>Secondary Education</i>
-                        <br>Barlaeus Gymnasium / Montessori Lyceum Amsterdam
-                        <br>VWO diploma obtained in 1999
-                    </p>
-             
-                    <h3>Professional Experience</h3>
-                    <p>
-                        <i><strong>Residentie Orkest The Hague</strong></i>
-                        <br>First Violinist | since 2009
-                    </p>
-
-                    <p>
-                        <i><strong>Freelance Violinist</strong></i>
-                        <br>Performed with:                        
-                    </p>
-                    <ul class='wp-block-list'>
-                        <li>Royal Concertgebouw Orchestra</li>
-                        <li>Rotterdam Philharmonic Orchestra</li>
-                        <li>Netherlands Philharmonic Orchestra</li>
-                        <li>Netherlands Chamber Orchestra</li>
-                        <li>London Symphony Orchestra</li>
-                        <li>Malaysian Philharmonic Orchestra</li>
-                        <li>Qatar Philharmonic Orchestra</li>
-                    </ul>
-
-                    <p>In addition to her extensive experience in the Dutch music scene, Naomi has performed internationally in London, Asia, and the Middle East.</p>
-
-                    <p>
-                        <i><strong>Young String Players Foundation (Stichting Jonge Strijkers Nederland)</strong></i>
-                        <br>Founder, Artistic & Executive Director | since 2015
-                    </p>
-                    <ul class='wp-block-list'>
-                        <li>Repertoire selection and tailored part editing for young string players</li>
-                        <li>Coaching of upper strings and chamber music groups</li>
-                        <li>Responsible for auditions, production, fundraising, and concert organization</li>
-                        <li>Maintains sponsor relations and long-term partnerships, including with Nyenrode University</li>
-                        <li>Performances on national television and at the Royal Concertgebouw</li>
-                        <li>2025 tour: New York & Carnegie Hall</li>
-                    </ul>
-
-                    <p>
-                        <i><strong>Violin Teacher</strong></i>
-                        <br>Private lessons since 2003
-                    </p>
-                    <ul class='wp-block-list'>
-                        <li>Over twenty years of experience teaching violin to young musicians, from beginners to advanced students</li>
-                        <li>Individual approach focused on technique, expression, and joy in playing</li>
-                        <li>Prepares students for recitals, competitions, ensemble projects, orchestra auditions, and entrance exams</li>
-                        <li>Promotes ensemble playing from an early age through chamber music and youth orchestra participation</li>
-                    </ul>
-                    
-                    <h3>Additional Activities</h3>
-                    <ul class='wp-block-list'>
-                        <li>Jury member at various national competitions for young musicians</li>
-                        <li>Teacher and coach at summer courses and string festivals</li>
-                        <li>Workshop leader and ensemble coach</li>
-                    </ul>
-                    "
-                ],
-                //Tomoko Honda
-                [
-                    "name" => "Tomoko Honda",
-                    "image" => "./assets/media/design/tomoko-honda.jpg",
-                    "position" => [
-                        "collaborative pianist at the Royal Conservatory of Brussels"
-                    ],
-                    "bio" => "
-                    <p>
-                        <strong>Tomoko Honda</strong> studied at the Liszt Academy in Budapest, the Queen Elisabeth Music Chapel, and the Hochschule für Musik in Cologne. In 2001, she won First Prize at the Minerbio International Competition in Bologna, as well as at the Weiner Chamber Music Competition in Budapest. She also received Second Prize at the European Competition in Turin in 1998 and at the Carlo Soliva International Competition in 2000, and Third Prize at both the C. Togni International Piano Competition and the Zinetti International Chamber Music Competition in 2006.
-                    </p>
-                    <p>
-                        Known for her refined palette and innovative explorations in contemporary music, she has performed as a soloist in some of the most prestigious concert halls and festivals, including Ars Musica, Klara Festival, and the Balsa Marni Festival in Belgium; Gaudeamus Muziekweek; the Trondheim Chamber Music Festival; Impulse Festival in Graz; the International Contemporary Music Festival in Budapest; and the Festival of Menton. She has collaborated with composers such as György Kurtág, György Ligeti, Peter Eötvös, Pascal Dusapin, Toshio Hosokawa, and George Crumb, premiering, performing, and recording numerous new works.
-                    </p>
-                    <p>
-                        A passionate chamber musician, she performs in various settings, both with small ensembles and larger groups. Tomoko has appeared at venues such as the Opéra de Lille, the Van Gogh Museum, the Palais des Beaux-Arts, Flagey, and Wigmore Hall, and she has toured extensively across Europe, Asia, South America, and Japan. She has also recorded for television and radio, including BBC Radio 3 (UK), Radio Bartók and Hungarian National TV, Musique 3, and Klara (Belgium).
-                    </p>
-                    <p>
-                        Since 2012, she has been working as a collaborative pianist at the Royal Conservatory of Brussels, and she regularly serves as an official accompanist at international competitions (such as the Adolphe Sax International Competition and the Jean-Marie Londeix International Competition).
-                    </p>
-                   "
-                ],
-            ],
-            "organizer" => [
-                "year" => "2024",
-            ]
-        ]
     ];
     ?>
 
@@ -550,23 +466,25 @@
         </div>
 
         <!-- Modal Year Selector -->
-        <ul class="modal-year-selector">
-            <?php
-            $first = true;
-            foreach ($page_info as $year => $info) {
-            ?>
-                <li>
-                    <a
-                        href="javascript:;"
-                        data-year="<?php echo $year; ?>"
-                        class="year-selector-item <?php if ($first) echo 'active'; ?>">
-                        <?php echo $year; ?>
-                    </a>
-                </li>
-            <?php
-                $first = false;
-            } ?>
-        </ul>
+        <div class="swiper auto centered centered-m modal-year-selector">
+            <div class="swiper-wrapper">
+                <?php
+                $first = true;
+                foreach ($page_info as $year => $info) {
+                ?>
+                    <div class="swiper-slide">
+                        <a
+                            href="javascript:;"
+                            data-year="<?php echo $year; ?>"
+                            class="year-selector-item <?php if ($first) echo 'active'; ?>">
+                            <?php echo $year; ?>
+                        </a>
+                    </div>
+                <?php
+                    $first = false;
+                } ?>
+            </div>
+        </div>
     </div>
 
     <section data-section="mentor">
@@ -645,7 +563,7 @@
     </section>
 
     <section data-section="organizer">
-        <div class="sc-inner">
+        <div class="sc-inner sc-inner--precedes">
             <div class="container">
                 <div class="block-content-center animate fadeEntryUp">
                     <div class="block-subttl">
@@ -664,7 +582,47 @@
                         <div
                             class="tab-content <?php if ($first) echo 'active'; ?>"
                             data-tab-content="<?php echo $year; ?>">
-                            <?php echo $year; ?>
+
+                            <div class="organizer-list animate fadeEntryUp">
+                                <div class="selector">
+                                    <div class="selector-wrapper">
+                                        <?php
+                                        foreach ($info["organizer"] as $index => $organizer) {
+                                        ?>
+                                            <div class="organizer-avatar">
+                                                <?php
+                                                $section_cover = $organizer["image"];
+                                                $section_cover_m = "";
+                                                include("include/function-group.php");
+                                                ?>
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                                <?php
+                                foreach ($info["organizer"] as $index => $organizer) {
+                                ?>
+                                    <div class="organizer-item">
+                                        <div class="item-wrapper">
+                                            <div class="organizer-name">
+                                                <h4><?php echo $organizer["name"]; ?></h4>
+                                            </div>
+                                            <div class="organizer-position">
+                                                <p><?php echo $organizer["position"]; ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
+                                }
+                                ?>
+                            </div>
+
+                            <a href="javascript:;" class="loadmore-button button">
+                                Load More
+                            </a>
+
                         </div>
                     <?php
                         $first = false;

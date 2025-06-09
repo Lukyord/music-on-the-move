@@ -37,11 +37,11 @@
                         Our Team
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a class="clickable" href="<?php echo $root; ?>policy.php">
                         Policy
                     </a>
-                </li>
+                </li> -->
             </ul>
         </div>
 

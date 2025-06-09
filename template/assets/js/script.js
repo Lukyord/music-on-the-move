@@ -1,3 +1,33 @@
+/*::* SCROLL TO TOP ON LOAD *::*/
+jQuery(document).ready(function ($) {
+    // Disable browser's automatic scroll restoration
+    if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+    }
+
+    // Force scroll to top
+    $("html, body").scrollTop(0);
+
+    // Backup scroll after a short delay
+    setTimeout(function () {
+        $("html, body").scrollTop(0);
+    }, 100);
+});
+
+/*::* DETECT RESIZING *::*/
+jQuery(document).ready(function ($) {
+    onWindowResize(
+        () => {
+            $("html").removeClass("resizing");
+        },
+        300,
+        true,
+        () => {
+            $("html").addClass("resizing");
+        }
+    );
+});
+
 /*::* INDEX INTRO *::*/
 jQuery(document).ready(function ($) {
     if ($("[data-section='index-intro']").length === 0) return;
@@ -115,7 +145,7 @@ jQuery(document).ready(function ($) {
     $(".text-gradient").each(function () {
         const textGradientScroll = $(this);
         const paragraphScroll = textGradientScroll.find(".opacity-paragraph");
-        const char = paragraphScroll.find(".char");
+        const word = paragraphScroll.find(".word");
 
         const scrollConfig = {
             trigger: paragraphScroll[0],
@@ -126,7 +156,7 @@ jQuery(document).ready(function ($) {
         };
 
         gsap.fromTo(
-            char,
+            word,
             {
                 opacity: 0.2,
             },
@@ -360,6 +390,8 @@ jQuery(document).ready(function ($) {
 /*::* MENTOR MODAL *::*/
 jQuery(document).ready(function ($) {
     const $modal = $(".mentor-modal");
+    if ($modal.length === 0) return;
+
     const $modalContent = $modal.find(".tab-content");
     const $modalOverlay = $modal.find(".modal-overlay");
     const $modalCloseBtn = $modal.find(".modal-close-button");
@@ -392,7 +424,6 @@ jQuery(document).ready(function ($) {
             if (slides) {
                 activeSlideIndex = slides.realIndex;
                 slides.destroy(true, true);
-                console.log("destroy");
             }
 
             let prevSlideConfig = isSmallScreen
@@ -419,8 +450,6 @@ jQuery(document).ready(function ($) {
                       origin: "bottom",
                   };
 
-            console.log("create");
-
             slides = new Swiper($swiper[0], {
                 speed: 1500,
                 loop: true,
@@ -428,6 +457,7 @@ jQuery(document).ready(function ($) {
                 slidesPerView: "auto",
                 watchSlidesVisibility: true,
                 watchSlidesProgress: true,
+                slideToClickedSlide: true,
                 navigation: {
                     nextEl: swiperNavNext,
                     prevEl: swiperNavPrev,
@@ -450,7 +480,17 @@ jQuery(document).ready(function ($) {
     // Open Modal
     $("[data-card='mentor']").click(function (e) {
         e.preventDefault();
+        const cardIndex = $(this).data("card-index");
+        const year = $(this).closest(".tab-content").data("tab-content");
+
+        // Show modal
         $modal.addClass("active");
+
+        // Slide to correct mentor
+        const activeSwiper = $(`.tab-content[data-modal-content="${year}"] .swiper.main`)[0].swiper;
+        if (activeSwiper) {
+            activeSwiper.slideToLoop(cardIndex, 0);
+        }
     });
 
     // Close Modal
@@ -462,5 +502,89 @@ jQuery(document).ready(function ($) {
     $modalCloseBtn.on("click", function (e) {
         e.preventDefault();
         $modal.removeClass("active");
+    });
+});
+
+/*::* ORGANIZER SELECTOR HOVER *::*/
+jQuery(document).ready(function ($) {
+    if ($("[data-section='organizer']").length === 0) return;
+
+    $("[data-section='organizer'] .tab-content").each(function () {
+        const $this = $(this);
+        const $organizerList = $this.find(".organizer-list");
+        const $organizerSelector = $organizerList.find(".selector");
+        const $organizerItems = $organizerList.find(".organizer-item");
+        const $organizerAvatars = $organizerSelector.find(".organizer-avatar");
+        const $loadMoreButton = $this.find(".loadmore-button");
+
+        let lastHoveredIndex = -1;
+        const maxVisibleItems = 10;
+        let isExpanded = false;
+
+        // Set initial avatar opacity
+        $organizerAvatars.eq(0).css("opacity", "1");
+
+        function moveSelectorToItem(index) {
+            const $item = $organizerItems.eq(index);
+            const itemTop = $item.position().top;
+            const itemHeight = $item.outerHeight();
+
+            $organizerSelector.css({
+                top: `${itemTop}px`,
+                height: `${itemHeight}px`,
+            });
+
+            // Update avatar opacity
+            if (lastHoveredIndex !== -1) {
+                $organizerAvatars.eq(lastHoveredIndex).css("opacity", "0");
+            }
+            $organizerAvatars.eq(index).css("opacity", "1");
+            lastHoveredIndex = index;
+        }
+
+        function calculateListHeight(showAll = false) {
+            let totalHeight = 0;
+            $organizerItems.each(function (index) {
+                if (showAll || index < maxVisibleItems) {
+                    $(this).show();
+                    totalHeight += $(this).outerHeight();
+                } else {
+                    $(this).hide();
+                }
+            });
+            return totalHeight + 1;
+        }
+
+        function updateListState() {
+            const newHeight = calculateListHeight(isExpanded);
+            $organizerList.css("height", `${newHeight}px`);
+            $loadMoreButton.text(isExpanded ? "Show Less" : "Load More");
+
+            // If collapsing, move selector to the last visible item
+            if (!isExpanded && lastHoveredIndex >= maxVisibleItems) {
+                moveSelectorToItem(maxVisibleItems - 1);
+            }
+        }
+
+        $organizerItems.on("mouseenter", function () {
+            const $this = $(this);
+            const itemIndex = $this.index() - 1;
+            moveSelectorToItem(itemIndex);
+        });
+
+        // Show/hide load more button based on total items
+        if ($organizerItems.length <= maxVisibleItems) {
+            $loadMoreButton.hide();
+        } else {
+            $loadMoreButton.show();
+
+            onWindowResize(updateListState);
+
+            $loadMoreButton.on("click", function (e) {
+                e.preventDefault();
+                isExpanded = !isExpanded;
+                updateListState();
+            });
+        }
     });
 });

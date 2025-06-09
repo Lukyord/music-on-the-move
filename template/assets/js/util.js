@@ -1,10 +1,5 @@
 // ON WINDOW RESIZE CALLBACK =============================
-function onWindowResize(
-    callback,
-    delay = 300,
-    executeOnLoad = true,
-    initialCallback
-) {
+function onWindowResize(callback, delay = 300, executeOnLoad = true, initialCallback) {
     let lastWidth = $(window).width();
     let resizeTimeout;
     let initialCallbackExecuted = false;
@@ -19,10 +14,7 @@ function onWindowResize(
         if (newWidth !== lastWidth) {
             lastWidth = newWidth;
 
-            if (
-                !initialCallbackExecuted &&
-                typeof initialCallback === "function"
-            ) {
+            if (!initialCallbackExecuted && typeof initialCallback === "function") {
                 initialCallbackExecuted = true;
                 initialCallback();
             }
@@ -65,9 +57,7 @@ function calcVw(vw) {
 
 // Function to calculate the 'rem' value
 function calcRem(rem) {
-    return (
-        rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
-    );
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
 
 // THROTTLE ============================
@@ -96,9 +86,7 @@ function checkIfFullyInView(content, inViewCallback, outOfViewCallback) {
 
     const rect = content[0].getBoundingClientRect();
 
-    const windowHeight = window.visualViewport
-        ? window.visualViewport.height
-        : window.innerHeight;
+    const windowHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
 
     if (rect.top >= 0 && rect.bottom <= windowHeight) {
         inViewCallback();
@@ -109,12 +97,7 @@ function checkIfFullyInView(content, inViewCallback, outOfViewCallback) {
 
 // CHECK IF IN VIEW ============================
 // var ratioInView = 1 / 2; 1/2 of the section is in view
-function checkIfInView(
-    inViewRatio,
-    content,
-    inViewCallback,
-    outOfViewCallback
-) {
+function checkIfInView(inViewRatio, content, inViewCallback, outOfViewCallback) {
     if (content.length === 0) {
         console.log("Content not found");
         return;
@@ -125,10 +108,7 @@ function checkIfInView(
     var sectionHeight = rect.height;
     var inViewSectionHeight = sectionHeight * inViewRatio;
 
-    if (
-        rect.top + inViewSectionHeight <= windowHeight &&
-        rect.top + sectionHeight > 0
-    ) {
+    if (rect.top + inViewSectionHeight <= windowHeight && rect.top + sectionHeight > 0) {
         inViewCallback();
     } else {
         outOfViewCallback();
@@ -138,12 +118,7 @@ function checkIfInView(
 // CHECK IF SCROLL PAST ============================
 // var offset = 100;
 // var headerOffset = $header.outerHeight();
-function checkIfScrolledPast(
-    content,
-    offSet = 0,
-    scrollPastCallback = () => {},
-    notScrolledPastCallback = () => {}
-) {
+function checkIfScrolledPast(content, offSet = 0, scrollPastCallback = () => {}, notScrolledPastCallback = () => {}) {
     if (content.length === 0) {
         console.log("Content not found");
         return;
