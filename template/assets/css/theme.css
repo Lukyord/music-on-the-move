@@ -2440,7 +2440,7 @@ html.touchevents a {
 #header {
     width: 100vw;
     position: sticky;
-    z-index: 1000;
+    z-index: 1001;
     top: 0;
     left: 0;
     padding: var(--spacing-sm) var(--spacing-container);
@@ -4625,13 +4625,14 @@ html.no-touchevents [data-card="mentor"]:hover .card-image {
     --offset-height: 12.962962963vh;
     position: fixed;
     inset: 0;
-    z-index: 1000;
+    z-index: 1001;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transition: var(--duration) var(--timing-function);
     display: grid;
     height: 100dvh;
+    overflow: hidden;
     grid-template-rows: var(--offset-height) 1fr var(--offset-height);
 }
 

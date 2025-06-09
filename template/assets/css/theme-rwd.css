@@ -731,6 +731,13 @@
         padding-right: calc(var(--gap-y) / 2);
     }
 
+    [data-section="accommodation-package"]
+        .swiper.thumbs
+        .swiper-slide:not(.swiper-slide-thumb-active)
+        .button::before {
+        width: 0;
+    }
+
     [data-section="accommodation-package"] .swiper.top {
         --gap-y: var(--spacing-xs);
         --column: 1;
@@ -777,7 +784,7 @@
 
     .mentor-modal .mentor-bio {
         width: 84.1025641026vw !important;
-        height: 79.1268758527vh;
+        height: 79.1268758527dvh;
         aspect-ratio: unset;
         align-items: center;
         flex-direction: column;
