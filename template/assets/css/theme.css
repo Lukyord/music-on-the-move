@@ -4850,6 +4850,10 @@ html.no-touchevents [data-card="mentor"]:hover .card-image {
 }
 
 /* Organizer */
+[data-section="organizer"] {
+    overflow: visible;
+}
+
 [data-section="organizer"] [class*="block-content-"] {
     margin-bottom: var(--spacing-3xl);
 }
