@@ -1072,7 +1072,7 @@ html.no-touchevents .lang ul > li > a:not(.active):hover {
     color: inherit;
 }
 .entry-content a {
-    color: var(--color-theme);
+    color: var(--color-body-black);
     text-decoration: underline;
     display: inline-block;
 }
