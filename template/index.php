@@ -54,8 +54,8 @@
                         </div>
 
                         <div class="block-cta">
-                            <a class="button" target="_blank" href="<?php echo $root; ?>accomodation.php">
-                                Venus & Accommodation
+                            <a class="button" target="_blank" href="<?php echo $root; ?>accommodation.php">
+                                Venues & Accommodation
                             </a>
                         </div>
                     </div>
